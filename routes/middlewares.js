@@ -13,4 +13,3 @@ exports.isNotLoggedIn=(req, res, next)=>{
 		res.redirect('/');
 	}
 };
-© 2021 GitHub, Inc.
