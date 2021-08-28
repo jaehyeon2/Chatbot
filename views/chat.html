@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<a href="/" id="exit-btn">방 나가기</a>
+<fieldset>
+    <legend>채팅 내용</legend>
+    <div id="chat-list">
+        {% for chat in chats %}
+		{% if chat.user === user %}
+		<div class="mine">
+			<div>{{chat.user}}</div>
+			
+            <div>{{chat.chat}}</div>
+        </div>
+        {% elif chat.user === 'system' %}
+        <div class="system">
+            <div>{{chat.chat}}</div>
+        </div>
+        {% else %}
+        <div class="other">
+            <div>{{chat.user}}</div>
+            
+            <div>{{chat.chat}}</div>
+        </div>
+        {% endif %}
+		{% endfor %}
+    </div>
+</fieldset>
+<form action="/chat" id="chat-form" method="post" >
+    <input type="text" id="chat" name="chat" />
+    <button type="submit">전송</button>
+</form>
+{% endlock %}
