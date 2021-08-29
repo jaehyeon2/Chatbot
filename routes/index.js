@@ -1,6 +1,9 @@
 const express=require('express');
 
-const Room=require('./middlewares');
+const Room=require('../schemas/room');
+const Chat=require('../schemas/chat');
+
+const {isLoggedIn, isNotLoggedIn}=require('./middlewares');
 
 const router=express.Router();
 
