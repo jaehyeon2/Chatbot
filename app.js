@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser(process.env.COOKIE_SECRET));
-spp.use(sessionMiddleware);
+app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
