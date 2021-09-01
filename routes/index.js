@@ -57,7 +57,7 @@ router.get('/room/:id', isLoggedIn, async(req, res, next)=>{
 		if(room.password&&room.password!==req.query.password){
 			return res.redirect('/?error=비밀번호가 틀렸습니다.');
 		}
-		const {rooms}=io.og('/chat').adapter;
+		const {rooms}=io.of('/chat').adapter;
 		if(rooms&&rooms[req.params.id]&&room.max<=rooms[req.params.id].length){
 			return res.redirect('/?error=허용 인원이 초과했습니다.');
 		}
